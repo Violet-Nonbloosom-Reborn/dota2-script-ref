@@ -34,7 +34,7 @@ export const enums = (() => {
   const dumpContent = readDump('cl_panorama_script_help_2');
   const result: Enum[] = [];
 
-  const blocks = dumpContent.split(/=== (\w+) ===/);
+  const blocks = dumpContent.split(/=== ([\w$]+) ===/);
   for (let i = 1; i < blocks.length; i += 2) {
     const name = blocks[i];
     const content = blocks[i + 1];

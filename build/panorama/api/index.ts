@@ -21,6 +21,7 @@ const UI_CLASS_NAMES = [
 const ALL_API_CLASSES = [...API_CLASS_PREFIXES, ...UI_CLASS_NAMES];
 
 function isApiClass(name: string): boolean {
+  if (name === '$') return true;
   return ALL_API_CLASSES.some((prefix) => name.startsWith(prefix));
 }
 
@@ -106,7 +107,7 @@ function parseTypescriptDeclarations(): Map<string, Map<string, string>> {
   const result = new Map<string, Map<string, string>>();
   const dumpContent = readDump('cl_panorama_typescript_declarations');
 
-  const interfaceRegex = /interface\s+(\w+)\s*\{([^}]+)\}/g;
+  const interfaceRegex = /interface\s+([\w$]+)\s*\{([^}]+)\}/g;
   let interfaceMatch;
 
   while ((interfaceMatch = interfaceRegex.exec(dumpContent)) !== null) {
@@ -134,7 +135,7 @@ export function generatePanoramaApi(): PanoramaClass[] {
   const result: PanoramaClass[] = [];
   const returnTypes = parseTypescriptDeclarations();
 
-  const blocks = dumpContent.split(/=== (\w+) ===/);
+  const blocks = dumpContent.split(/=== ([\w$]+) ===/);
   for (let i = 1; i < blocks.length; i += 2) {
     const name = blocks[i];
     const content = blocks[i + 1];

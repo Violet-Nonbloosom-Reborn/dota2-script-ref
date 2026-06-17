@@ -5384,7 +5384,13 @@
         ],
         "returns": "boolean",
         "description": "Does the player have an inventory item of a given item definition index?"
-      },
+      }
+    ]
+  },
+  {
+    "name": "$",
+    "namespace": "$",
+    "methods": [
       {
         "name": "Msg",
         "args": [
@@ -5393,7 +5399,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Log a message"
       },
       {
@@ -5404,7 +5410,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Trigger an assert"
       },
       {
@@ -5415,7 +5421,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Log a warning message to specified channel"
       },
       {
@@ -5426,7 +5432,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Dispatch an event"
       },
       {
@@ -5437,7 +5443,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Dispatch an event to occur later"
       },
       {
@@ -5448,7 +5454,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Register an event handler"
       },
       {
@@ -5459,7 +5465,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Register a handler for an event that is not otherwise handled"
       },
       {
@@ -5470,7 +5476,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Remove an unhandled event handler"
       },
       {
@@ -5481,7 +5487,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Find an element"
       },
       {
@@ -5492,7 +5498,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Make a web request (disabled)"
       },
       {
@@ -5503,7 +5509,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Create a new panel"
       },
       {
@@ -5514,7 +5520,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "DEPRECATED: Use $.CreatePanel which has the same signature and supports properties."
       },
       {
@@ -5525,7 +5531,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Check whether the given localization token is known to the localization system."
       },
       {
@@ -5536,7 +5542,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Localize a string. Optionally accepts a Panel argument for dialog variable values."
       },
       {
@@ -5547,7 +5553,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Localize a string using the given property values"
       },
       {
@@ -5558,7 +5564,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Localize a MessageFormat string using the given property values"
       },
       {
@@ -5569,7 +5575,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Get the current language"
       },
       {
@@ -5580,7 +5586,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Schedule a function to be called later"
       },
       {
@@ -5591,7 +5597,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Cancels a scheduled function"
       },
       {
@@ -5602,7 +5608,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Gets the time this frame started, in seconds since panorama was initialized"
       },
       {
@@ -5613,7 +5619,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Get the current panel context"
       },
       {
@@ -5624,7 +5630,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Register a key binding"
       },
       {
@@ -5635,7 +5641,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Call a function on each given item"
       },
       {
@@ -5646,7 +5652,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Call during JS startup code to check if script is being reloaded"
       },
       {
@@ -5657,7 +5663,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Convert a string to HTML-safe"
       },
       {
@@ -5668,7 +5674,7 @@
             "type": "any[]"
           }
         ],
-        "returns": "any",
+        "returns": "void",
         "description": "Create a logging channel"
       },
       {
