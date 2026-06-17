@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { outputJson } from '../util';
 import { extracted, additionalEnums } from './data';
-import { EngineEnum, EngineEnumMember } from './types';
+import { EngineEnum } from './types';
 
 const identity = <T>(value: T) => value;
 
@@ -44,10 +44,7 @@ export async function generateEngineEnums(dota2Dir: string) {
         usedStrings.set(string, name);
       }
 
-      const members = selectedStrings.map(
-        (x): EngineEnumMember => ({ name: x }),
-      );
-      members.sort((a, b) => a.name.localeCompare(b.name));
+      const members = [...selectedStrings].sort((a, b) => a.localeCompare(b));
       if (additionalMembers) {
         members.push(...additionalMembers);
       }

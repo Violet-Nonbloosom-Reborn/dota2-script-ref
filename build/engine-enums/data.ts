@@ -1,20 +1,17 @@
-import { EngineEnum, EngineEnumMember } from './types';
+import { EngineEnum } from './types';
 
 export interface ExtractionRule {
   name?: string;
   prefix?: string;
   filter?(x: string): boolean;
-  transform?(x: EngineEnumMember[]): EngineEnumMember[];
-  additionalMembers?: EngineEnumMember[];
+  transform?(x: string[]): string[];
+  additionalMembers?: string[];
 }
 
 export const additionalEnums: EngineEnum[] = [
   {
     name: 'SpecialValueFieldType',
-    members: [
-      { name: 'FIELD_INTEGER' },
-      { name: 'FIELD_FLOAT' },
-    ],
+    members: ['FIELD_INTEGER', 'FIELD_FLOAT'],
   },
 ];
 
@@ -37,7 +34,7 @@ export const extracted: ExtractionRule[] = [
   {
     name: 'Activity',
     prefix: 'ACT_',
-    additionalMembers: [{ name: 'ACT_INVALID' }],
+    additionalMembers: ['ACT_INVALID'],
   },
   { name: 'FieldType', prefix: 'FIELD_' },
   { name: 'SpecialBonusOperation', prefix: 'SPECIAL_BONUS_' },
@@ -46,7 +43,7 @@ export const extracted: ExtractionRule[] = [
     name: 'Bot',
     prefix: 'DOTA_BOT_',
     filter: (x) => !x.startsWith('DOTA_BOT_MODE'),
-    transform: (x) => [...x, { name: 'DOTA_BOT_SUPPORT' }],
+    transform: (x) => [...x, 'DOTA_BOT_SUPPORT'],
   },
   { name: 'SpellImmunityType', prefix: 'SPELL_IMMUNITY_' },
   { prefix: 'DAMAGE_TYPE_' },
@@ -67,11 +64,7 @@ export const extracted: ExtractionRule[] = [
       !x.startsWith('ITEM_FULLY_') &&
       !x.startsWith('ITEM_SLOT_TYPE_') &&
       !x.endsWith('_SHAREABLE'),
-    additionalMembers: [
-      { name: 'ITEM_CONSUMABLE' },
-      { name: 'ITEM_SELLABLE' },
-      { name: 'ITEM_DERIVED' },
-    ],
+    additionalMembers: ['ITEM_CONSUMABLE', 'ITEM_SELLABLE', 'ITEM_DERIVED'],
   },
   {
     name: 'ItemShareability',
