@@ -1,4 +1,4 @@
-import _, { add } from 'lodash';
+import _ from 'lodash';
 import * as fs from 'fs';
 import * as path from 'path';
 import { outputJson } from '../util';
@@ -18,7 +18,6 @@ export async function generateEngineEnums(dota2Dir: string) {
       name,
       prefix,
       filter = () => true,
-      map = identity,
       transform = identity,
       additionalMembers,
     }): EngineEnum => {
@@ -28,10 +27,6 @@ export async function generateEngineEnums(dota2Dir: string) {
         } else {
           throw new Error('Extracted enum has no name or prefix defined.');
         }
-      }
-
-      if (map === identity && prefix) {
-        map = (value: string) => value.replace(prefix, '');
       }
 
       const selectedStrings = (prefix ? strings.filter((x) => x.startsWith(prefix)) : strings)
@@ -50,7 +45,7 @@ export async function generateEngineEnums(dota2Dir: string) {
       }
 
       const members = selectedStrings.map(
-        (x): EngineEnumMember => ({ name: x, shortName: map(x) }),
+        (x): EngineEnumMember => ({ name: x }),
       );
       members.sort((a, b) => a.name.localeCompare(b.name));
       if (additionalMembers) {

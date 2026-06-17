@@ -4,7 +4,6 @@ export interface ExtractionRule {
   name?: string;
   prefix?: string;
   filter?(x: string): boolean;
-  map?(x: string): string;
   transform?(x: EngineEnumMember[]): EngineEnumMember[];
   additionalMembers?: EngineEnumMember[];
 }
@@ -13,8 +12,8 @@ export const additionalEnums: EngineEnum[] = [
   {
     name: 'SpecialValueFieldType',
     members: [
-      { name: 'FIELD_INTEGER', shortName: 'INTEGER' },
-      { name: 'FIELD_FLOAT', shortName: 'FLOAT' },
+      { name: 'FIELD_INTEGER' },
+      { name: 'FIELD_FLOAT' },
     ],
   },
 ];
@@ -38,7 +37,7 @@ export const extracted: ExtractionRule[] = [
   {
     name: 'Activity',
     prefix: 'ACT_',
-    additionalMembers: [{ name: 'ACT_INVALID', shortName: 'INVALID' }],
+    additionalMembers: [{ name: 'ACT_INVALID' }],
   },
   { name: 'FieldType', prefix: 'FIELD_' },
   { name: 'SpecialBonusOperation', prefix: 'SPECIAL_BONUS_' },
@@ -47,7 +46,7 @@ export const extracted: ExtractionRule[] = [
     name: 'Bot',
     prefix: 'DOTA_BOT_',
     filter: (x) => !x.startsWith('DOTA_BOT_MODE'),
-    transform: (x) => [...x, { name: 'DOTA_BOT_SUPPORT', shortName: 'SUPPORT' }],
+    transform: (x) => [...x, { name: 'DOTA_BOT_SUPPORT' }],
   },
   { name: 'SpellImmunityType', prefix: 'SPELL_IMMUNITY_' },
   { prefix: 'DAMAGE_TYPE_' },
@@ -69,31 +68,15 @@ export const extracted: ExtractionRule[] = [
       !x.startsWith('ITEM_SLOT_TYPE_') &&
       !x.endsWith('_SHAREABLE'),
     additionalMembers: [
-      {
-        name: 'ITEM_CONSUMABLE',
-        shortName: 'CONSUMABLE',
-      },
-      {
-        name: 'ITEM_SELLABLE',
-        shortName: 'SELLABLE',
-      },
-      {
-        name: 'ITEM_DERIVED',
-        shortName: 'DERIVED',
-      },
+      { name: 'ITEM_CONSUMABLE' },
+      { name: 'ITEM_SELLABLE' },
+      { name: 'ITEM_DERIVED' },
     ],
   },
   {
     name: 'ItemShareability',
     prefix: 'ITEM_',
     filter: (x) => x.includes('_SHAREABLE'),
-    transform(enums) {
-      for (const member of enums) {
-        member.shortName = member.shortName.replace('_SHAREABLE', '');
-      }
-
-      return enums;
-    },
   },
   { name: 'SpellDispellableType', prefix: 'SPELL_DISPELLABLE_' },
   { name: 'UnitTargetFlags', prefix: 'DOTA_UNIT_TARGET_FLAG_' },

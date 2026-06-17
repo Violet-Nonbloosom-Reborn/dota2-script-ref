@@ -5,5 +5,4 @@ export interface EngineEnum {
 
 export interface EngineEnumMember {
   name: string;
-  shortName: string;
 }
