@@ -1,16 +1,13 @@
-import { outputFile, outputJson } from '../util';
-import { apiDeclarations, apiTypes } from './api';
-import { apiTypesDeclarations, apiTypesTypes } from './api-types';
-import { generateEnumDeclarations, enumsTypes } from './enums';
+import { outputJson } from '../util';
+import { apiDeclarations } from './api';
+import { apiTypesDeclarations } from './api-types';
+import { generateEnumDeclarations } from './enums';
 
 export async function generateVScripts() {
   outputJson('vscripts/api', apiDeclarations());
-  outputFile('vscripts/api.d.ts', apiTypes);
   outputJson('vscripts/api-types', apiTypesDeclarations);
-  outputFile('vscripts/api-types.d.ts', apiTypesTypes);
   const enumDeclarations = generateEnumDeclarations();
   outputJson('vscripts/enums', enumDeclarations.enumDeclarations);
-  outputFile('vscripts/enums.d.ts', enumsTypes);
 
   return {
     enumDeclarations,

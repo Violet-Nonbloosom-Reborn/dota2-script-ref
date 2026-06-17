@@ -1,8 +1,3 @@
-import { exportNamespacedRoot } from '../../util';
-
-export const types = exportNamespacedRoot(__filename, 'api', 'api.Declaration[]');
-
-// EXPORT START
 export type Declaration = FunctionDeclaration | ClassDeclaration;
 export type Availability = 'server' | 'client' | 'both';
 
@@ -65,4 +60,3 @@ export interface ClassDeclaration {
   call?: FunctionType;
   members: ClassMember[];
 }
-// EXPORT END

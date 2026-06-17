@@ -1,8 +1,3 @@
-import { exportNamespacedRoot } from '../../util';
-
-export const types = exportNamespacedRoot(__filename, 'enums', 'enums.Declaration[]');
-
-// EXPORT START
 export type Declaration = Constant | Enum;
 export type Availability = 'server' | 'both';
 
@@ -27,4 +22,3 @@ export interface EnumMember {
   description?: string;
   value: number;
 }
-// EXPORT END

@@ -11,8 +11,6 @@ import {
 } from './data';
 import { Availability, Constant, Enum, EnumMember } from './types';
 
-export { types as enumsTypes } from './types';
-
 export type EnumOrConstant = Enum | Constant;
 
 interface EnumResult {

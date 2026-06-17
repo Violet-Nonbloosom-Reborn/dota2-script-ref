@@ -1,6 +1,6 @@
 import assert from 'assert';
-import { formatDescription, outputFile, outputJson } from '../util';
-import { Event, types } from './types';
+import { formatDescription, outputJson } from '../util';
+import { Event } from './types';
 import vpk from 'vpk';
 import * as path from 'path';
 
@@ -76,8 +76,5 @@ export async function generateEvents(dota2Dir: string) {
   parseFile(events, coreEvents.toString(), 'core');
   parseFile(events, gameEvents.toString(), 'game');
 
-  await Promise.all([
-    outputJson('events', Object.values(events)),
-    outputFile('events.d.ts', types),
-  ]);
+  await outputJson('events', Object.values(events));
 }

@@ -1,9 +1,9 @@
 import _, { add } from 'lodash';
 import * as fs from 'fs';
 import * as path from 'path';
-import { outputFile, outputJson } from '../util';
+import { outputJson } from '../util';
 import { extracted, additionalEnums } from './data';
-import { EngineEnum, EngineEnumMember, types } from './types';
+import { EngineEnum, EngineEnumMember } from './types';
 
 const identity = <T>(value: T) => value;
 
@@ -74,7 +74,7 @@ export async function generateEngineEnums(dota2Dir: string) {
     }
   }
 
-  await Promise.all([outputJson('engine-enums', enums), outputFile('engine-enums.d.ts', types)]);
+  await outputJson('engine-enums', enums);
 }
 
 function scanFileForStrings(path: string): string[] {

@@ -3,8 +3,6 @@ import { binaryBoolean, literal } from '../api/data/utils';
 import { checkTypes } from '../validation';
 import * as apiTypesTypes from './types';
 
-export { types as apiTypesTypes } from './types';
-
 export const apiTypesDeclarations: apiTypesTypes.Declaration[] = [];
 
 apiTypesDeclarations.push({ kind: 'primitive', name: 'bool' });

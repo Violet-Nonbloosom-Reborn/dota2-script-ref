@@ -6,8 +6,6 @@ import { classExtensions, extraDeclarations, functionExtensions } from './data';
 import { modifierFunctionMethods } from './data/modifier-properties';
 import * as apiTypes from './types';
 
-export { types as apiTypes } from './types';
-
 interface JoinedMethod {
   server?: DumpMethod;
   client?: DumpMethod;

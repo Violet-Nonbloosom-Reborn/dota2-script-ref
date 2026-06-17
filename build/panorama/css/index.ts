@@ -2,8 +2,6 @@ import _ from 'lodash';
 import { readDump } from '../../util';
 import { Property } from './types';
 
-export { types as cssTypes } from './types';
-
 const EXAMPLES_REGEXP = /\n\n<b>Examples?:<\/b><pre>(.+)<\/pre>$/s;
 
 export function generateCss() {
