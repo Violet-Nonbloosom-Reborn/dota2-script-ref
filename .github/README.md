@@ -1,31 +1,35 @@
-# dota-data
+# dota2-script-ref
 
-Auto-generated Dota 2 resource dumps.
+Dota 2 自定义游戏 API 参考 Skill
 
-Data from this package is available on [ModDota API](http://moddota.com/api) page (previously [dota.tools](https://dota.tools/)).
+本项目从 Dota 2 客户端提取 API 数据，生成结构化的 JSON 文件，组装 Agent Skill。
 
-## To update from a new dump
+## 目标项目
 
-### For contributors:
+本 Skill 服务于 Dota 2 自定义游戏：
+- 前端: Lua (VScripts)
+- 后端: JavaScript (Panorama)
 
-#### If you want to update from an API dump
+该 Skill **不适合** Typescript 项目。
 
-1. Check out this repository
-2. Install with `npm ci`
-3. Run `npm run auto-dump` and wait for the script to finish and dota to close.
-4. Run `npm run build` to generate all package files.
-5. Commit changes
-6. Create a pull request
+## 快速开始
 
-#### If you are updating the API manually
+### 开发前置要求
 
-1. Edit the corresponding `.ts` files (i.e. `modifier-properties.ts`)
-2. Run `npm ci` then `npm run build` in the root of the repository
-3. You should now have corresponding `.json` files re-generated (i.e. `api.json`)
-4. Commit changes
-5. Create a pull request
+- Node.js >= 12.13.0
+- pnpm
+- Dota 2（用于 auto-dump）
 
-### For maintainers:
+### 生成参考数据
 
-1. Run `npm version minor`
-2. Push with tags
+```bash
+# 安装依赖
+pnpm install
+
+# 从现有 dump 文件生成（不需要 Dota 2）
+pnpm run build
+
+# 或从 Dota 2 客户端重新 dump（需要 Dota 2 + 工具）
+pnpm run auto-dump
+pnpm run build:process-dump
+```
