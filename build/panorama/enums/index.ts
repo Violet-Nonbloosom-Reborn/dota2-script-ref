@@ -2,38 +2,53 @@ import { readDump } from '../../util';
 import { getEnumDescription } from '../../vscripts/api/data/modifier-properties';
 import { Enum, EnumMember } from './types';
 
-export const enums = (() => {
-  const result = readDump('cl_panorama_script_help *')
-    .split(/\r?\n\r?\n/)
-    .map((group): Enum => {
-      const enumName = group.match(/declare enum (.+)([\s{]*)?/)![1];
-      const members: EnumMember[] = [];
+function parseEnumBlock(name: string, content: string): Enum {
+  const members: EnumMember[] = [];
+  const lines = content.split('\n');
 
-      let currentComment: string | undefined;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line === '|-') {
+      const nameLine = lines[i + 1]?.trim();
+      const valueLine = lines[i + 2]?.trim();
+      const descLine = lines[i + 3]?.trim();
 
-      for (const line of group.slice(group.indexOf('{')).split('\n')) {
-        const comment = line.match(/\/\*\* (.+) \*\//);
-        if (comment) {
-          [, currentComment] = comment;
+      if (nameLine?.startsWith('|') && valueLine?.startsWith('|')) {
+        const fullName = nameLine.replace(/^\|\s*/, '');
+        const memberName = fullName.replace(/^[\w.]+\./, '');
+        const value = parseInt(valueLine.replace(/^\|\s*/, ''), 10);
+        const description = descLine?.replace(/^\|\s*/, '').trim() || undefined;
+
+        if (!isNaN(value) && memberName) {
+          members.push({ name: memberName, value, description });
         }
-
-        const member = line.match(/(\w+) = (-?\d+)/);
-        if (member) {
-          members.push({
-            name: member[1],
-            description: currentComment,
-            value: Number(member[2]),
-          });
-
-          currentComment = undefined;
-        }
+        i += 3;
       }
+    }
+  }
 
-      return { name: enumName, members };
-    });
+  return { name, members };
+}
 
-  for (const member of result.find((x) => x.name === 'modifierfunction')!.members) {
-    member.description = getEnumDescription(member.description);
+export const enums = (() => {
+  const dumpContent = readDump('cl_panorama_script_help_2');
+  const result: Enum[] = [];
+
+  const blocks = dumpContent.split(/=== (\w+) ===/);
+  for (let i = 1; i < blocks.length; i += 2) {
+    const name = blocks[i];
+    const content = blocks[i + 1];
+
+    if (content.includes('! Enumerator')) {
+      result.push(parseEnumBlock(name, content));
+    }
+  }
+
+  const modifierFunction = result.find((x) => x.name === 'modifierfunction');
+  if (modifierFunction) {
+    for (const member of modifierFunction.members) {
+      member.description = getEnumDescription(member.description);
+    }
   }
 
   return result;
