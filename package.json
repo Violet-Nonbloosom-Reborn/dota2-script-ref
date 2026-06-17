@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "build": "run-s build:clean build:extract build:process-dump",
-    "build:clean": "rimraf \"files/**/*\"",
+    "build:clean": "rimraf \"skills/reference/**/*\"",
     "build:extract": "tsx build/extract.ts",
     "build:process-dump": "tsx build/process-dump.ts",
     "lint": "run-p lint:*",

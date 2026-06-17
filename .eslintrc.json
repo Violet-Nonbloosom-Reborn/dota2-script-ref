@@ -9,5 +9,5 @@
     ],
     "extraFileExtensions": [".mts"]
   },
-  "ignorePatterns": ["/lib", "/files"]
+  "ignorePatterns": ["/skills/reference"]
 }

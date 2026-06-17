@@ -51,6 +51,6 @@ Sections are split by `$> command_name`. Key sections:
 ## Build Flow
 
 1. `build:extract` — Reads VPK files from Dota 2 install, generates events/enums
-2. `build:process-dump` — Parses `dumper/dump`, generates `files/**/*.json`
+2. `build:process-dump` — Parses `dumper/dump`, generates `skills/reference/**/*.json`
 
 For skill generation, only `build:process-dump` is needed (no VPK access).

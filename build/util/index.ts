@@ -18,7 +18,7 @@ export function readDump(name: string) {
   return value.trim();
 }
 
-const FILES = path.join(__dirname, '../../files');
+const FILES = path.join(__dirname, '../../skills/reference');
 export const outputFile = (name: string, data: string) =>
   fs.outputFileSync(path.join(FILES, name), `${data.trimEnd()}\n`);
 export const outputJson = (name: string, data: any) =>
