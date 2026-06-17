@@ -1,27 +1,16 @@
 {
-  "name": "@moddota/dota-data",
-  "version": "0.47.2",
-  "description": "Auto-generated Dota 2 resource dumps",
-  "repository": "https://github.com/ModDota/dota-data",
+  "private": true,
+  "description": "Dota 2 API reference generator for Agent Skills",
   "license": "Apache-2.0",
-  "author": "ark120202",
-  "files": [
-    "lib/**/*.{js,ts}",
-    "files/**/*.{json,ts}"
-  ],
   "scripts": {
-    "build": "run-s build:clean build:extract build:process-dump build:tsc",
-    "build:clean": "rimraf \"{files,lib}/**/*\"",
+    "build": "run-s build:clean build:extract build:process-dump",
+    "build:clean": "rimraf \"files/**/*\"",
     "build:extract": "tsx build/extract.ts",
     "build:process-dump": "tsx build/process-dump.ts",
-    "build:tsc": "tsc -p src",
-    "dev": "run-p dev:static dev:tsc",
-    "dev:tsc": "tsc --watch --preserveWatchOutput",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint",
     "lint:prettier": "prettier --check .",
     "fix:prettier": "prettier --write .",
-    "prepublishOnly": "pnpm run build:tsc",
     "test": "jest",
     "auto-dump": "tsx dumper/start-dumper.mts"
   },
@@ -48,13 +37,9 @@
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
-    "got": "^11.6.0",
-    "lodash": "^4.17.20",
-    "tslib": "^2.0.1",
-    "vdf-extra": "^2.2.2"
+    "lodash": "^4.17.20"
   },
   "devDependencies": {
-    "@ark120202/typescript-config": "^2.2.0",
     "@moddota/find-steam-app": "^1.1.0",
     "@types/dedent": "^0.7.0",
     "@types/fs-extra": "^9.0.1",
@@ -71,13 +56,9 @@
     "prettier": "2.3.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^29.4.6",
-    "ts-node": "^9.1.1",
     "tsx": "^3.14.0",
     "typescript": "^5.9.3",
     "valve-kv": "^1.2.1",
     "vpk": "^0.2.0"
-  },
-  "engines": {
-    "node": ">=12.13.0"
   }
 }

@@ -4,11 +4,10 @@
   "parserOptions": {
     "project": [
       "build/tsconfig.json",
-      "schemas/tsconfig.json",
       "test/tsconfig.json",
       "dumper/tsconfig.json"
     ],
     "extraFileExtensions": [".mts"]
   },
-  "ignorePatterns": ["/lib", "/files", "/src"]
+  "ignorePatterns": ["/lib", "/files"]
 }

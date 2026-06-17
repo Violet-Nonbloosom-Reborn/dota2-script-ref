@@ -8,7 +8,7 @@ Use **pnpm** (not npm). The `pnpm-workspace.yaml` configures build script approv
 
 ```bash
 pnpm install              # Install dependencies
-pnpm run build            # Full build: clean → extract → process-dump → tsc
+pnpm run build            # Full build: clean → extract → process-dump
 pnpm run build:extract    # Extract from Dota 2 VPKs (requires local Dota 2 install)
 pnpm run build:process-dump # Process dumper/dump file only (no Dota 2 needed)
 pnpm run auto-dump        # Launch Dota 2 and dump API (requires Dota 2 + tools)
@@ -25,7 +25,6 @@ pnpm run fix:prettier     # Auto-fix formatting
 | `dumper/dump` | Raw dump output (MediaWiki table format) |
 | `build/` | TypeScript scripts that parse dump → structured JSON |
 | `files/` | Generated JSON + .d.ts output (git-tracked) |
-| `src/` | Library code compiled to `lib/` |
 | `skills/` | Agent Skill definition (TBD) |
 | `test/` | Jest tests |
 
@@ -53,6 +52,5 @@ Sections are split by `$> command_name`. Key sections:
 
 1. `build:extract` — Reads VPK files from Dota 2 install, generates events/enums
 2. `build:process-dump` — Parses `dumper/dump`, generates `files/**/*.json`
-3. `build:tsc` — Compiles `src/` → `lib/`
 
 For skill generation, only `build:process-dump` is needed (no VPK access).
