@@ -28,6 +28,9 @@ if (!fs.existsSync(addonPath)) {
 }
 
 const vscriptsPath = path.join(addonPath, 'scripts', 'vscripts');
+if (!fs.existsSync(vscriptsPath)) {
+  fs.mkdirSync(vscriptsPath, { recursive: true });
+}
 fs.copyFileSync(
   path.join('dumper', 'addon_game_mode.lua'),
   path.join(vscriptsPath, 'addon_game_mode.lua'),
