@@ -66,6 +66,7 @@ For enums:
 
 1. `build:extract` — Reads VPK files from Dota 2 install, generates events/enums
 2. `build:process-dump` — Parses `dumper/dump`, generates `skills/reference/**/*.json`
+3. Both scripts automatically update `skills/SKILL.md` version from dump's `ClientVersion`
 
 For skill generation, only `build:process-dump` is needed (no VPK access).
 

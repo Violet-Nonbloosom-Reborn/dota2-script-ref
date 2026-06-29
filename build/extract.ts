@@ -4,6 +4,7 @@ import { generateEvents } from './events';
 import { generateEngineEnums } from './engine-enums';
 import { generatePanorama } from './panorama';
 import { generateVScripts } from './vscripts';
+import { getClientVersion, updateSkillVersion } from './generate-skill-version';
 
 import { validateApi } from './vscripts/api';
 import { validateApiTypes } from './vscripts/api-types';
@@ -47,6 +48,10 @@ import { validateEnums } from './vscripts/enums';
   modifierFunctionMethods().forEach(validateModifierMethod);
 
   validateEnums(vscriptsResult.enumDeclarations);
+
+  console.log('\nUpdating skill version...');
+  const version = getClientVersion();
+  updateSkillVersion(version);
 })().catch((error) => {
   console.error(error);
   process.exit(1);
