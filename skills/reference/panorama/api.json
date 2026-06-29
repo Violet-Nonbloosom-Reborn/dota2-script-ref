@@ -4819,6 +4819,17 @@
         "description": "Is the control button pressed?"
       },
       {
+        "name": "IsKeyDown",
+        "args": [
+          {
+            "name": "nButtonNum",
+            "type": "number"
+          }
+        ],
+        "returns": "boolean",
+        "description": "Is this key pressed?"
+      },
+      {
         "name": "GetClickBehaviors",
         "args": [],
         "returns": "number",
@@ -6665,6 +6676,26 @@
         "returns": "void"
       },
       {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
         "name": "Data",
         "args": [
           {
@@ -7709,6 +7740,26 @@
           },
           {
             "name": "float_3",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
             "type": "number"
           }
         ],
@@ -8795,6 +8846,26 @@
         "returns": "void"
       },
       {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
         "name": "Data",
         "args": [
           {
@@ -9839,6 +9910,26 @@
           },
           {
             "name": "float_3",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
             "type": "number"
           }
         ],
@@ -10935,6 +11026,26 @@
         "returns": "void"
       },
       {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
         "name": "Data",
         "args": [
           {
@@ -12005,6 +12116,26 @@
         "returns": "void"
       },
       {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
         "name": "Data",
         "args": [
           {
@@ -13049,6 +13180,26 @@
           },
           {
             "name": "float_3",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
             "type": "number"
           }
         ],
@@ -14129,6 +14280,26 @@
           },
           {
             "name": "float_3",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetWidthInPixels",
+        "args": [
+          {
+            "name": "float_1",
+            "type": "number"
+          }
+        ],
+        "returns": "void"
+      },
+      {
+        "name": "SetHeightInPixels",
+        "args": [
+          {
+            "name": "float_1",
             "type": "number"
           }
         ],
