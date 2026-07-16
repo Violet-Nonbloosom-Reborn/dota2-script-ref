@@ -768,7 +768,7 @@ export const functionExtensions: Record<string, ExtensionFunction> = {
   '_G.TraceCollideable': { description: '', args: { 0: ['query', 'TraceCollideableInputs'] } },
   '_G.TraceHull': { description: '', args: { 0: ['query', 'TraceHullInputs'] } },
   '_G.TraceLine': { description: '', args: { 0: ['query', 'TraceLineInputs'] } },
-  'CBaseEntity.SetAngularVelocity': { description: 'Set the local angular velocity.' }, // Remove argument names
+  'CBaseEntity.SetAngularVelocity': { description: 'Set the local angular velocity.' },
   'CBaseModelEntity.SetSkin': { description: '' }, // Remove argument type and function name
   'CDOTAGameRules.AddEventMetadataLeaderboardEntry': {
     args: {
@@ -808,6 +808,7 @@ export const functionExtensions: Record<string, ExtensionFunction> = {
       0: [null, [literal(0), literal(1), literal(2)], '0=all, 1=enemy, 2=ally'],
     },
   },
+  'CDOTA_BaseNPC.MakePhantomBlocker': { description: 'Make this entity to become blocker, cannot be passed by units even in phase state.' },
   'CDOTAGameRules.GetBannedHeroes': { returns: array('string') },
   'ProjectileManager.IsValidProjectile': { args: { 0: ['value'] } },
   '_G.IsMangoTree': { args: { 0: ['entity', 'CBaseEntity'] } },
