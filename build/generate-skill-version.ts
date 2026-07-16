@@ -16,7 +16,10 @@ export function getClientVersion(): string {
 export function updateSkillVersion(version: string): void {
   let content = fs.readFileSync(SKILL_PATH, 'utf8');
 
-  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
+  const lineEnding = content.includes('\r\n') ? '\r\n' : '\n';
+  const frontmatterMatch = content.match(
+    new RegExp(`^---${lineEnding}([\\s\\S]*?)${lineEnding}---`),
+  );
   if (!frontmatterMatch) {
     throw new Error('Could not find frontmatter in SKILL.md');
   }
@@ -27,13 +30,13 @@ export function updateSkillVersion(version: string): void {
   if (frontmatter.match(/^version:/m)) {
     newFrontmatter = frontmatter.replace(/^version:.*$/m, `version: ${version}`);
   } else {
-    newFrontmatter = frontmatter.replace(
-      /^(name:.*)$/m,
-      `$1\nversion: ${version}`
-    );
+    newFrontmatter = frontmatter.replace(/^(name:.*)$/m, `$1${lineEnding}version: ${version}`);
   }
 
-  content = content.replace(/^---\n[\s\S]*?\n---/, `---\n${newFrontmatter}\n---`);
+  content = content.replace(
+    new RegExp(`^---${lineEnding}[\\s\\S]*?${lineEnding}---`),
+    `---${lineEnding}${newFrontmatter}${lineEnding}---`,
+  );
   fs.writeFileSync(SKILL_PATH, content);
   console.log(`Updated SKILL.md version to ${version}`);
 }
