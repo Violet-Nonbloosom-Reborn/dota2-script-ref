@@ -1,6 +1,6 @@
 ---
 name: dota2-script-ref
-version: 6840
+version: 6865
 description: Dota 2 custom game API reference for Panorama JS and VScripts Lua. Use when writing Dota 2 custom game code, looking up API methods, classes, enums, game events, or Panorama CSS properties.
 ---
 

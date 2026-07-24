@@ -8242,6 +8242,7 @@
         "kind": "function",
         "name": "MakePhantomBlocker",
         "available": "server",
+        "description": "Make this entity to become blocker, cannot be passed by units even in phase state.",
         "returns": [
           "nil"
         ],
