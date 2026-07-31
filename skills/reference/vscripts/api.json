@@ -8547,7 +8547,7 @@
         "available": "server",
         "description": "Performs an attack on a target.",
         "returns": [
-          "nil"
+          "float"
         ],
         "args": [
           {
@@ -13028,6 +13028,15 @@
         "kind": "function",
         "name": "IsInBackpack",
         "available": "both",
+        "returns": [
+          "bool"
+        ],
+        "args": []
+      },
+      {
+        "kind": "function",
+        "name": "IsInStash",
+        "available": "server",
         "returns": [
           "bool"
         ],
@@ -18056,6 +18065,16 @@
       },
       {
         "kind": "function",
+        "name": "GetModifierPropertyIgnoreForceTarget",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
+        ]
+      },
+      {
+        "kind": "function",
         "name": "GetModifierPropertyManacostOverride",
         "available": "both",
         "abstract": true,
@@ -18272,6 +18291,16 @@
         "args": [],
         "returns": [
           "float"
+        ]
+      },
+      {
+        "kind": "function",
+        "name": "GetModifierSpellAmplify_PercentageUnique_2",
+        "available": "both",
+        "abstract": true,
+        "args": [],
+        "returns": [
+          "nil"
         ]
       },
       {
