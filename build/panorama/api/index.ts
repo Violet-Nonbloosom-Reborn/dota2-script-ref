@@ -1,4 +1,5 @@
 import { readDump } from '../../util';
+import { classExtensions } from './data';
 import { PanoramaClass, PanoramaMethod, PanoramaArg } from './types';
 
 const API_CLASS_PREFIXES = [
@@ -130,6 +131,32 @@ function parseTypescriptDeclarations(): Map<string, Map<string, string>> {
   return result;
 }
 
+function applyClassExtensions(classes: PanoramaClass[]): PanoramaClass[] {
+  for (const extension of classExtensions) {
+    const existingClass = classes.find((cls) => cls.name === extension.name);
+    if (!existingClass) {
+      classes.push(extension);
+      continue;
+    }
+
+    for (const extensionMethod of extension.methods) {
+      const existingIndex = existingClass.methods.findIndex(
+        (method) => method.name === extensionMethod.name,
+      );
+      if (existingIndex === -1) {
+        existingClass.methods.push(extensionMethod);
+      } else {
+        existingClass.methods[existingIndex] = {
+          ...existingClass.methods[existingIndex],
+          ...extensionMethod,
+        };
+      }
+    }
+  }
+
+  return classes;
+}
+
 export function generatePanoramaApi(): PanoramaClass[] {
   const dumpContent = readDump('cl_panorama_script_help_2');
   const result: PanoramaClass[] = [];
@@ -157,5 +184,5 @@ export function generatePanoramaApi(): PanoramaClass[] {
     }
   }
 
-  return result;
+  return applyClassExtensions(result);
 }
